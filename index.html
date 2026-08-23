@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow">
+<title>LinkedIn Learning Adoption Status</title>
+<style>
+*{box-sizing:border-box}
+:root{color-scheme:light;--surface-0:#f4f4f2;--surface-1:#fcfcfb;--line:#e2e2dd;
+--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#7c7b76;
+--series-1:#2a78d6;--series-2:#eb6834}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--surface-0:#111110;--surface-1:#1a1a19;--line:#33332f;
+--text-primary:#fff;--text-secondary:#c3c2b7;--text-muted:#918f86;--series-1:#3987e5;--series-2:#d95926}}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;background:var(--surface-0);color:var(--text-primary);
+font-family:-apple-system,'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.55}
+.wrap{max-width:1060px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:26px;margin:0 0 24px;letter-spacing:-.01em}
+h2{font-size:19px;margin:44px 0 4px}
+h3{font-size:15px;margin:26px 0 6px}
+.note{color:var(--text-muted);font-size:13px;margin:0 0 14px}
+.card{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:20px;overflow-x:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:start}
+.kpi{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:28px;font-weight:650;letter-spacing:-.02em}
+.kpi .l{font-size:12.5px;color:var(--text-secondary);margin-top:2px}
+.kpi .b{font-size:11.5px;color:var(--text-muted);margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;gap:8px;line-height:1.45}
+.kpi .b b{color:var(--text-secondary);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi .b.slot{font-style:italic;opacity:.7}
+.row{display:grid;grid-template-columns:212px minmax(0,1fr) 44px 62px;align-items:center;gap:12px;padding:3px 0;position:relative;outline:none}
+.lbl{font-size:13px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{display:flex;height:18px;gap:2px;position:relative}
+.seg{height:100%;border-radius:4px 0 0 4px}
+.seg:last-child{border-radius:0 4px 4px 0}
+.seg.a{background:var(--series-1)} .seg.n{background:var(--series-2)}
+.pct{font-size:12px;color:var(--text-muted);font-variant-numeric:tabular-nums}
+.cnt{font-size:13px;font-variant-numeric:tabular-nums} .cnt .of{color:var(--text-muted)}
+.row:hover .track,.row:focus .track{filter:brightness(1.08)}
+.row:hover::after,.row:focus::after{content:attr(data-tip);position:absolute;left:0;
+background:var(--text-primary);color:var(--surface-1);font-size:12px;padding:5px 9px;border-radius:6px;
+transform:translateY(-26px);z-index:5;white-space:nowrap;max-width:92%}
+.bm{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.bmc{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:16px}
+.bmc .m{font-size:12.5px;color:var(--text-secondary);min-height:32px}
+.bmc .v{font-size:28px;font-weight:650;letter-spacing:-.02em;margin:4px 0 2px}
+.bmc .n{font-size:11.5px;color:var(--text-muted)}
+.bmc .cmp{margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12px;color:var(--text-muted)}
+.bmc .cmp b{font-variant-numeric:tabular-nums;color:var(--text-secondary);font-weight:600}
+.dl{font-size:13px;font-weight:650;font-variant-numeric:tabular-nums}
+.dl.up{color:var(--series-1)} .dl.dn{color:var(--series-2)}
+.legend{display:flex;gap:16px;margin:0 0 14px;font-size:13px;color:var(--text-secondary)}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);
+font-weight:600;padding:0 8px 8px;border-bottom:1px solid var(--line)}
+th:not(:first-child):not(:nth-child(2)){text-align:center;width:1%;white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);overflow-wrap:break-word}
+td.num{text-align:center;font-variant-numeric:tabular-nums;color:var(--text-secondary);white-space:nowrap;overflow-wrap:normal;width:1%}
+tr:last-child td{border-bottom:none}
+.rank{color:var(--text-muted);width:28px;min-width:28px;font-size:12px;white-space:nowrap}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.prow{display:grid;grid-template-columns:1fr 116px 68px 78px 56px;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--line)}
+.prow:last-child{border-bottom:none}
+.prow.h{padding-bottom:8px;font-size:11.5px;letter-spacing:.04em;color:var(--text-muted);text-transform:uppercase}
+.pname{font-size:13.5px}
+.pbar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.pbar span{display:block;height:100%;background:var(--series-1);border-radius:4px}
+.pn{font-size:13px;text-align:center;font-variant-numeric:tabular-nums}
+.pn.z{color:var(--series-2)} .pn.d{color:var(--series-1);font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+.mini{background:var(--surface-1);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mini .t{font-size:13px;font-weight:600;margin-bottom:6px}
+.mini .d{font-size:12.5px;color:var(--text-secondary);line-height:1.7}
+.nacard{overflow:visible}
+.ndgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+.nd{position:relative;outline:none}
+.ndh{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  border:1px solid var(--line);border-radius:9px;padding:9px 12px;cursor:default;
+  transition:border-color .12s,background .12s}
+.nd:hover .ndh,.nd:focus .ndh,.nd:focus-within .ndh{border-color:var(--series-2);background:var(--surface-0)}
+.ndd{font-size:13.5px;color:var(--text-primary)}
+.ndn{font-size:13.5px;font-weight:650;color:var(--series-2);font-variant-numeric:tabular-nums}
+.ndp{position:absolute;top:calc(100% + 6px);left:0;min-width:100%;width:max-content;max-width:320px;
+  background:var(--surface-1);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.14);z-index:20;
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .12s,transform .12s,visibility .12s}
+.nd:hover .ndp,.nd:focus .ndp,.nd:focus-within .ndp{opacity:1;visibility:visible;transform:translateY(0)}
+.ndt{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);
+  padding-bottom:7px;margin-bottom:7px;border-bottom:1px solid var(--line)}
+.ndp ul{margin:0;padding:0;list-style:none;max-height:290px;overflow-y:auto;
+  columns:1;font-size:13px;color:var(--text-secondary)}
+.ndp li{padding:2px 0;white-space:nowrap}
+.ndhint{font-size:12px;color:var(--text-muted);margin:14px 0 0}
+details{margin-top:12px} summary{cursor:pointer;font-size:13.5px;color:var(--text-secondary)}
+footer{margin-top:48px;font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--line);padding-top:14px}
+@media(max-width:760px){
+ .cols,.split{grid-template-columns:1fr} .wrap{padding:24px 14px 48px}
+ .ndp{max-width:calc(100vw - 60px)} .ndp li{white-space:normal}
+ .row{grid-template-columns:minmax(0,1fr) 40px 56px;grid-template-areas:'l l l' 't p c';gap:1px 8px;padding:6px 0}
+ .lbl{grid-area:l;font-size:12.5px;white-space:normal} .track{grid-area:t} .pct{grid-area:p} .cnt{grid-area:c}
+ .prow{grid-template-columns:1fr 76px 48px 56px 40px;gap:6px} .pname{font-size:12.5px}
+}
+</style></head><body><div class="wrap">
+<h1>LinkedIn Learning Adoption Status</h1>
+
+<div class="kpis">
+<div class="kpi"><div class="v">344</div><div class="l">Licences assigned</div></div>
+<div class="kpi"><div class="v" style="color:var(--series-1)">238</div><div class="l">Activated (69%)</div></div>
+<div class="kpi"><div class="v" style="color:var(--series-2)">106</div><div class="l">Not yet activated</div></div>
+<div class="kpi"><div class="v">93</div><div class="l">Courses completed</div></div>
+<div class="kpi"><div class="v">97.0</div><div class="l">Hours viewed</div></div>
+</div>
+
+<h2>Activation by Department</h2>
+<p class="note">Sorted by department size. Bar length is the number of licences in that department.</p>
+<div class="card">
+<div class="legend"><span><i style="background:var(--series-1)"></i>Activated</span>
+<span><i style="background:var(--series-2)"></i>Not activated</span></div>
+<div class="row" tabindex="0" data-tip="R&D — 72 licences, 53 activated, 19 not"><div class="lbl">R&D</div><div class="track"><div class="seg a" style="width:73.61111111111111%"></div><div class="seg n" style="width:26.38888888888889%"></div></div><div class="pct">74%</div><div class="cnt">53<span class="of">/72</span></div></div><div class="row" tabindex="0" data-tip="Data — 43 licences, 39 activated, 4 not"><div class="lbl">Data</div><div class="track"><div class="seg a" style="width:54.166666666666664%"></div><div class="seg n" style="width:5.555555555555555%"></div></div><div class="pct">91%</div><div class="cnt">39<span class="of">/43</span></div></div><div class="row" tabindex="0" data-tip="Jobs — 31 licences, 24 activated, 7 not"><div class="lbl">Jobs</div><div class="track"><div class="seg a" style="width:33.33333333333333%"></div><div class="seg n" style="width:9.722222222222223%"></div></div><div class="pct">77%</div><div class="cnt">24<span class="of">/31</span></div></div><div class="row" tabindex="0" data-tip="Customer Service — 30 licences, 6 activated, 24 not"><div class="lbl">Customer Service</div><div class="track"><div class="seg a" style="width:8.333333333333332%"></div><div class="seg n" style="width:33.33333333333333%"></div></div><div class="pct">20%</div><div class="cnt">6<span class="of">/30</span></div></div><div class="row" tabindex="0" data-tip="Trust & Safety — 28 licences, 15 activated, 13 not"><div class="lbl">Trust & Safety</div><div class="track"><div class="seg a" style="width:20.833333333333336%"></div><div class="seg n" style="width:18.055555555555554%"></div></div><div class="pct">54%</div><div class="cnt">15<span class="of">/28</span></div></div><div class="row" tabindex="0" data-tip="Real Estate - Secondary — 27 licences, 12 activated, 15 not"><div class="lbl">Real Estate - Secondary</div><div class="track"><div class="seg a" style="width:16.666666666666664%"></div><div class="seg n" style="width:20.833333333333336%"></div></div><div class="pct">44%</div><div class="cnt">12<span class="of">/27</span></div></div><div class="row" tabindex="0" data-tip="Real Estate - New Development — 24 licences, 19 activated, 5 not"><div class="lbl">Real Estate - New Development</div><div class="track"><div class="seg a" style="width:26.38888888888889%"></div><div class="seg n" style="width:6.944444444444445%"></div></div><div class="pct">79%</div><div class="cnt">19<span class="of">/24</span></div></div><div class="row" tabindex="0" data-tip="Marketing — 18 licences, 16 activated, 2 not"><div class="lbl">Marketing</div><div class="track"><div class="seg a" style="width:22.22222222222222%"></div><div class="seg n" style="width:2.7777777777777777%"></div></div><div class="pct">89%</div><div class="cnt">16<span class="of">/18</span></div></div><div class="row" tabindex="0" data-tip="Product — 18 licences, 16 activated, 2 not"><div class="lbl">Product</div><div class="track"><div class="seg a" style="width:22.22222222222222%"></div><div class="seg n" style="width:2.7777777777777777%"></div></div><div class="pct">89%</div><div class="cnt">16<span class="of">/18</span></div></div><div class="row" tabindex="0" data-tip="Finance — 18 licences, 8 activated, 10 not"><div class="lbl">Finance</div><div class="track"><div class="seg a" style="width:11.11111111111111%"></div><div class="seg n" style="width:13.88888888888889%"></div></div><div class="pct">44%</div><div class="cnt">8<span class="of">/18</span></div></div><div class="row" tabindex="0" data-tip="Vehicle — 13 licences, 13 activated, 0 not"><div class="lbl">Vehicle</div><div class="track"><div class="seg a" style="width:18.055555555555554%"></div><div class="seg n" style="width:0.0%"></div></div><div class="pct">100%</div><div class="cnt">13<span class="of">/13</span></div></div><div class="row" tabindex="0" data-tip="C-level — 11 licences, 7 activated, 4 not"><div class="lbl">C-level</div><div class="track"><div class="seg a" style="width:9.722222222222223%"></div><div class="seg n" style="width:5.555555555555555%"></div></div><div class="pct">64%</div><div class="cnt">7<span class="of">/11</span></div></div><div class="row" tabindex="0" data-tip="HR — 8 licences, 7 activated, 1 not"><div class="lbl">HR</div><div class="track"><div class="seg a" style="width:9.722222222222223%"></div><div class="seg n" style="width:1.3888888888888888%"></div></div><div class="pct">88%</div><div class="cnt">7<span class="of">/8</span></div></div><div class="row" tabindex="0" data-tip="Goods — 3 licences, 3 activated, 0 not"><div class="lbl">Goods</div><div class="track"><div class="seg a" style="width:4.166666666666666%"></div><div class="seg n" style="width:0.0%"></div></div><div class="pct">100%</div><div class="cnt">3<span class="of">/3</span></div></div>
+</div>
+
+<h2>Not Yet Activated (106)</h2>
+<p class="note">Licence assigned, never activated.</p>
+<div class="card nacard"><div class="ndgrid"><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Customer Service</span><span class="ndn">24</span></div><div class="ndp"><div class="ndt">Customer Service &middot; 24 not activated</div><ul><li>Adi Yoffe</li><li>Alisa Dubrovitsky</li><li>Alona Blau</li><li>Aviva Wondimenech</li><li>Aviya Dahbash</li><li>Aya Hefetz</li><li>Gal Fux</li><li>Gali Gat</li><li>Haim Halfon</li><li>Itamar Shmuel Cohen</li><li>Lea Itzhak</li><li>Lee Roth</li><li>Linor Behnam</li><li>Loren Beber</li><li>Marina Libon</li><li>Moran Ben Shalom</li><li>Naama Deshet</li><li>Nadav Moshe</li><li>Orel Adameke</li><li>Paz Eliad</li><li>Sapir Levin</li><li>Shani Ben David</li><li>Shoham Chekol</li><li>Yoav Baavour</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">R&D</span><span class="ndn">19</span></div><div class="ndp"><div class="ndt">R&D &middot; 19 not activated</div><ul><li>Amos Kashi</li><li>Avigail Ben Shimol</li><li>Chana Oren</li><li>Gal Sheinhorn</li><li>Harel Stern</li><li>Ido Gilboa</li><li>Itzhak Zaguri</li><li>Liel Hafuta</li><li>Mika Hammer</li><li>Nechama Gekraiter</li><li>Pavel Shmilevich</li><li>Ran Lavi</li><li>Ruth Goldstein</li><li>Sagiv Villdorf</li><li>Sara Greinman</li><li>Shay Butbul</li><li>Yair Vanunu</li><li>Yarden Ben Dahan</li><li>Yohanan Baruchel</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Real Estate - Secondary</span><span class="ndn">15</span></div><div class="ndp"><div class="ndt">Real Estate - Secondary &middot; 15 not activated</div><ul><li>Alon Simon</li><li>Asaf Rozental</li><li>Bar Jaldety</li><li>Dor Bar-On</li><li>Eliram Lasry</li><li>Hen Perets</li><li>Ilan Umanski</li><li>Kobi Rabi</li><li>Liran Kopf</li><li>Mariana Harush</li><li>Rozeen Abu Nahli</li><li>Sagi Dahan</li><li>Sapir Benador</li><li>Tal Cohen</li><li>Yehonatan Mizrahi</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Trust & Safety</span><span class="ndn">13</span></div><div class="ndp"><div class="ndt">Trust & Safety &middot; 13 not activated</div><ul><li>Aviram Gavish</li><li>Damba Russell</li><li>Dana Martziano</li><li>Daniel Amsalem</li><li>Eden Bashan</li><li>Itai Mairesse</li><li>Jonathan Goldstein</li><li>Meshi Shay</li><li>Oshrat Binyamin Zadik</li><li>Shaked Jacob</li><li>Shir Genin</li><li>Shira Affias</li><li>Shirly Spector</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Finance</span><span class="ndn">10</span></div><div class="ndp"><div class="ndt">Finance &middot; 10 not activated</div><ul><li>Efrat Maydanie</li><li>Eti Ozer</li><li>Margalit Zur</li><li>Michal Hermon</li><li>Michal Malki</li><li>Ron Grinberg</li><li>Rotem Gavra</li><li>Shay Zolotarsky</li><li>Tal Agman</li><li>Tehila Cohen</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Jobs</span><span class="ndn">7</span></div><div class="ndp"><div class="ndt">Jobs &middot; 7 not activated</div><ul><li>Ariel Ishakov</li><li>Danor Rahmani</li><li>May Golan</li><li>Mor Shalala</li><li>Sharon Berkovich</li><li>Svetlana Goldenberg</li><li>Talor Adlerstein</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Real Estate - New Development</span><span class="ndn">5</span></div><div class="ndp"><div class="ndt">Real Estate - New Development &middot; 5 not activated</div><ul><li>Gilad Gabay</li><li>Liv Shahak</li><li>Oriya Konforti</li><li>Shai Kushnir</li><li>Tal Arazi</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">C-level</span><span class="ndn">4</span></div><div class="ndp"><div class="ndt">C-level &middot; 4 not activated</div><ul><li>Eli Zerah</li><li>Ido Milstein</li><li>Ifat Eldad-Evron</li><li>Sima Azulay</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Data</span><span class="ndn">4</span></div><div class="ndp"><div class="ndt">Data &middot; 4 not activated</div><ul><li>Anastasia Zaytsev Shpak</li><li>Dov Fischman</li><li>Maya Lina Keren</li><li>Sagi Cohen Arazi</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Marketing</span><span class="ndn">2</span></div><div class="ndp"><div class="ndt">Marketing &middot; 2 not activated</div><ul><li>Bar Malka Feller</li><li>Tal Avraham</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">Product</span><span class="ndn">2</span></div><div class="ndp"><div class="ndt">Product &middot; 2 not activated</div><ul><li>Amira Infeld</li><li>Mor Gabay</li></ul></div></div><div class="nd" tabindex="0"><div class="ndh"><span class="ndd">HR</span><span class="ndn">1</span></div><div class="ndp"><div class="ndt">HR &middot; 1 not activated</div><ul><li>Shani Amir</li></ul></div></div></div>
+<p class="ndhint">Hover a department &mdash; or tap it on a touch screen &mdash; to see who has not activated.</p></div>
+
+<h2>Top 10 Active Users</h2>
+<p class="note">Ranked by days logged in. Ties broken by hours viewed, then by courses started.</p>
+<div class="card"><table class=""><thead><tr><th></th><th>Name</th><th>Department</th><th>Days logged in</th><th>Courses started</th><th>Hours viewed</th><th>Courses completed</th></tr></thead><tbody><tr><td class=rank>1</td><td>Irit Zriker</td><td class=num>HR</td><td class=num>49</td><td class=num>11</td><td class=num>2.1</td><td class=num>3</td></tr><tr><td class=rank>2</td><td>Doron Godny</td><td class=num>Goods</td><td class=num>39</td><td class=num>12</td><td class=num>7.5</td><td class=num>9</td></tr><tr><td class=rank>3</td><td>Tzvi Vasserman</td><td class=num>R&D</td><td class=num>33</td><td class=num>12</td><td class=num>6.3</td><td class=num>0</td></tr><tr><td class=rank>4</td><td>Shani Ashkenazi</td><td class=num>Trust & Safety</td><td class=num>30</td><td class=num>0</td><td class=num>0.0</td><td class=num>0</td></tr><tr><td class=rank>5</td><td>Yonatan Palant</td><td class=num>Data</td><td class=num>23</td><td class=num>12</td><td class=num>5.3</td><td class=num>10</td></tr><tr><td class=rank>6</td><td>Eden Polak</td><td class=num>R&D</td><td class=num>21</td><td class=num>41</td><td class=num>6.3</td><td class=num>5</td></tr><tr><td class=rank>7</td><td>Michal Mitlanski</td><td class=num>Trust & Safety</td><td class=num>21</td><td class=num>20</td><td class=num>1.5</td><td class=num>1</td></tr><tr><td class=rank>8</td><td>Elinor Chapo Keinan</td><td class=num>Trust & Safety</td><td class=num>20</td><td class=num>19</td><td class=num>1.8</td><td class=num>1</td></tr><tr><td class=rank>9</td><td>Renat Toibin</td><td class=num>C-level</td><td class=num>20</td><td class=num>20</td><td class=num>1.1</td><td class=num>2</td></tr><tr><td class=rank>10</td><td>Eran Shaul</td><td class=num>Product</td><td class=num>19</td><td class=num>2</td><td class=num>0.4</td><td class=num>0</td></tr></tbody></table></div>
+
+<h2>Top 10 Users by Courses Completed</h2>
+<p class="note">35 learners completed at least one item, 93 completions in total.</p>
+<div class="card"><table class=""><thead><tr><th></th><th>Name</th><th>Department</th><th>Courses completed</th><th>Courses started</th><th>Hours viewed</th><th>Days logged in</th></tr></thead><tbody><tr><td class=rank>1</td><td>Yonatan Palant</td><td class=num>Data</td><td class=num>10</td><td class=num>12</td><td class=num>5.3</td><td class=num>23</td></tr><tr><td class=rank>2</td><td>Doron Godny</td><td class=num>Goods</td><td class=num>9</td><td class=num>12</td><td class=num>7.5</td><td class=num>39</td></tr><tr><td class=rank>3</td><td>Ilan Chen</td><td class=num>Marketing</td><td class=num>6</td><td class=num>12</td><td class=num>5.1</td><td class=num>4</td></tr><tr><td class=rank>4</td><td>Eden Polak</td><td class=num>R&D</td><td class=num>5</td><td class=num>41</td><td class=num>6.3</td><td class=num>21</td></tr><tr><td class=rank>5</td><td>Danit Mashiah</td><td class=num>Trust & Safety</td><td class=num>4</td><td class=num>6</td><td class=num>1.1</td><td class=num>5</td></tr><tr><td class=rank>6</td><td>Linor Falah</td><td class=num>Trust & Safety</td><td class=num>4</td><td class=num>4</td><td class=num>1.0</td><td class=num>6</td></tr><tr><td class=rank>7</td><td>Ayala Marciano</td><td class=num>Trust & Safety</td><td class=num>4</td><td class=num>7</td><td class=num>1.0</td><td class=num>3</td></tr><tr><td class=rank>8</td><td>Yifat Tanami</td><td class=num>Trust & Safety</td><td class=num>4</td><td class=num>5</td><td class=num>1.0</td><td class=num>3</td></tr><tr><td class=rank>9</td><td>Rosie Alon</td><td class=num>Trust & Safety</td><td class=num>4</td><td class=num>4</td><td class=num>0.9</td><td class=num>2</td></tr><tr><td class=rank>10</td><td>Orit Adler</td><td class=num>R&D</td><td class=num>3</td><td class=num>16</td><td class=num>2.5</td><td class=num>6</td></tr></tbody></table></div>
+
+<div class="cols">
+<div><h2>Top 10 Most Viewed Courses</h2><p class="note">By number of distinct learners.</p>
+<div class="card"><table class=""><thead><tr><th></th><th>Course</th><th>Learners</th></tr></thead><tbody><tr><td class=rank>1</td><td>Claude Code in Action by Anthropic</td><td class=num>10</td></tr><tr><td class=rank>2</td><td>Time Management: Working from Home</td><td class=num>9</td></tr><tr><td class=rank>3</td><td>Agentic AI: Build Your First Agentic AI System</td><td class=num>6</td></tr><tr><td class=rank>4</td><td>Skill Sprint: Make the Most of Claude Code</td><td class=num>6</td></tr><tr><td class=rank>5</td><td>What Is Generative AI?</td><td class=num>6</td></tr><tr><td class=rank>6</td><td>Introduction to Business Analytics</td><td class=num>6</td></tr><tr><td class=rank>7</td><td>Practice Role Play: Establishing work-life boundaries for remote work</td><td class=num>6</td></tr><tr><td class=rank>8</td><td>Applied AI for IT Operations (AIOps)</td><td class=num>5</td></tr><tr><td class=rank>9</td><td>Agentic AI Fundamentals: Architectures, Frameworks, and Applications</td><td class=num>5</td></tr><tr><td class=rank>10</td><td>Customer Service Communication Skills</td><td class=num>5</td></tr></tbody></table></div></div>
+<div><h2>Top 10 In-Demand Skills</h2><p class="note">Derived from the Skills column; one course carries several skills.</p>
+<div class="card"><table class=""><thead><tr><th></th><th>Skill</th><th>Learners</th></tr></thead><tbody><tr><td class=rank>1</td><td>Artificial Intelligence (AI)</td><td class=num>87</td></tr><tr><td class=rank>2</td><td>Generative AI</td><td class=num>29</td></tr><tr><td class=rank>3</td><td>AI Agents</td><td class=num>28</td></tr><tr><td class=rank>4</td><td>AI for Business</td><td class=num>25</td></tr><tr><td class=rank>5</td><td>AI Productivity</td><td class=num>24</td></tr><tr><td class=rank>6</td><td>Data Analysis</td><td class=num>21</td></tr><tr><td class=rank>7</td><td>Anthropic Claude</td><td class=num>18</td></tr><tr><td class=rank>8</td><td>SQL</td><td class=num>16</td></tr><tr><td class=rank>9</td><td>Generative AI Tools</td><td class=num>16</td></tr><tr><td class=rank>10</td><td>Agentic AI Development</td><td class=num>14</td></tr></tbody></table></div></div>
+</div>
+
+</div></body></html>
